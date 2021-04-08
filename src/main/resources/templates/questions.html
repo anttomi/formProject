@@ -11,7 +11,14 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 	
 	
 
-	
+	<table>
+	<tr th:each="question : ${questions}">
+	<td th:text="${question.question}"/></td>
+	<td th:text="${question.answer}"/></td>
+	<td> <input/></td>
+	</tr>
+	</table>
+
 	
 	<a href="/add" class="btn btn-primary">Add a new result</a>
 </body>

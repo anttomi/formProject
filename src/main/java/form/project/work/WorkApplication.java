@@ -25,8 +25,8 @@ public class WorkApplication {
 			
 			log.info("first questions");
 			
-			repository.save(new Question("Mitä kuuluu", "jotain"));
-			repository.save(new Question("toinen ksymys", "sama"));	
+			repository.save(new Question("Mitä kuuluu", "jotain", "checkbox"));
+			repository.save(new Question("toinen ksymys", "sama", "checkbox"));	
 			
 			log.info("fetch all books");
 			for (Question question : repository.findAll()) {
@@ -35,8 +35,8 @@ public class WorkApplication {
 
 		
 
-};
+			};
 	}
-	}
+}
 
 	

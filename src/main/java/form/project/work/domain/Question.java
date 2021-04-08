@@ -1,16 +1,35 @@
 package form.project.work.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Question {
 
-	private long id;
+
+	@Id
+    	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
 	private String question;
 	private String answer;
+	private String type;
 	
-	
-	public Question(String question, String answer) {
+	public Question () {
+	    
+	}
+	public Question(String question, String answer, String type) {
 		super();
 		this.question = question;
 		this.answer = answer;
+		this.type = type;
+	}
+	public String getType() {
+	    return type;
+	}
+	public void setType(String type) {
+	    this.type = type;
 	}
 	public String getQuestion() {
 		return question;
@@ -19,10 +38,10 @@ public class Question {
 		this.question = question;
 	}
 	
-	public long getId() {
+	public Long getId() {
 		return id;	
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -32,6 +51,11 @@ public class Question {
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
+	
+    	@Override
+    	public String toString() {
+    	    return "Question [id=" + id + ", question=" + question + ", answer=" + answer + ", type=" + type + "]";
+    }
 	
 	
 }
