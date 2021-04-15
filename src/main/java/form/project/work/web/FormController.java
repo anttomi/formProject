@@ -15,6 +15,11 @@ public class FormController {
 	@Autowired
 	private QuestionRepository repository;
 	
+	@RequestMapping(value="/login")
+    public String login() {	
+        return "login";
+    }
+	
 	@RequestMapping(value = "/questions", method = RequestMethod.GET)
 	public String Questions(Model model) {
 		model.addAttribute("questions", repository.findAll());
