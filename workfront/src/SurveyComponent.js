@@ -17,7 +17,7 @@ class SurveyComponent extends React.Component {
       let json = {
         questions: [
           {
-            type: "checkbox",
+            type: "text",
             name: "kysymys1",
             title: "Mitä kuuluu?",
             isRequired: true,
