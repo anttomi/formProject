@@ -1,5 +1,6 @@
 package form.project.work.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,11 +12,17 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(name = "username", nullable = false, unique = true)
 	private String username;
+	
+	@Column(name = "password", nullable = false)
 	private String passwordHash;
+	
+	@Column(name = "role", nullable = false)
 	private String role;
 	
-	private User(){
+	public User(){
 		
 	}
 	
