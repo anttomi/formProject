@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
 xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-
+<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
 <title>formtest</title>
 </head>
 <body>
@@ -11,11 +11,13 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 	
 	<table>
 	<tr th:each="question : ${questions}">
-	<td th:text="${question.question}"/></td>
+	<td th:text="${question.title}"/></td>
 	<td th:text="${question.answer}"/></td>
 	<td> <input/></td>
 	</tr>
 	</table>
+	
+	<a href="/add" class="btn btn-primary">Add a new question</a><br><br>
 
 </body>
 </html>

@@ -14,48 +14,58 @@ public class Question {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	private String question, answer, type;
+	private String title, answer, type;
 	
 	public Question () {
 	    
 	}
-	public Question(String question, String answer, String type) {
+
+	public Question(String title, String answer, String type) {
 		super();
-		this.question = question;
+		this.title = title;
 		this.answer = answer;
 		this.type = type;
 	}
-	public String getType() {
-	    return type;
-	}
-	public void setType(String type) {
-	    this.type = type;
-	}
-	public String getQuestion() {
-		return question;
-	}
-	public void setQuestion(String question) {
-		this.question = question;
-	}
-	
+
+
+
 	public Long getId() {
-		return id;	
+		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getAnswer() {
 		return answer;
 	}
+
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	@Override
+	public String toString() {
+		return "Question [id=" + id + ", title=" + title + ", answer=" + answer + ", type=" + type + "]";
+	}
 	
-    	@Override
-    	public String toString() {
-    	    return "Question [id=" + id + ", question=" + question + ", answer=" + answer + ", type=" + type + "]";
-    }
 	
 	
 }
