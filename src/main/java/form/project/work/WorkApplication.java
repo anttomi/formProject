@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 
 import form.project.work.domain.User;
 import form.project.work.domain.UserRepository;
+import net.minidev.json.JSONArray;
 import form.project.work.domain.Question;
 import form.project.work.domain.QuestionRepository;
 
@@ -41,9 +42,7 @@ public class WorkApplication {
 			for (Question question : repository.findAll()) {
 				log.info(question.toString());
 			}
-
 		
-
 			};
 	}
 }
