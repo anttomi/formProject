@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 
 
@@ -15,6 +17,9 @@ public class Question {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String title, answer, type;
+	@ManyToOne
+	@JoinColumn(name="form")
+	private Form form;
 	
 	public Question () {
 	    
