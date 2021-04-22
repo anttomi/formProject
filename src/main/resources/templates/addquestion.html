@@ -13,6 +13,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
  <form th:object="${question}" th:action="@{save}" action="#" method="post">
  
  <div>
+
   <label for="question">Question<input type="text" th:field= "*{title}" class="form-control"></label>
   </div>
  
@@ -20,7 +21,14 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
   <label for="answer">Answer<input type="text" th:field= "*{answer}" class="form-control"></label>
   </div>
   <div>
-  <label for="type">Type<input type="text" th:field= "*{type}" class="form-control"></label>
+  <label for="type">Type</label>
+   <select th:field="*{type}" class="form-control">
+ 	<option th:value="text" th:text="Avoin"></option>
+ 	<option th:value="checkbox" th:text="Monivalinta"></option>
+ </select>
+  <br> <br>
+
+
   </div>
  <input type="submit" value="Save"  class="btn btn-success"></input>
  </form>
