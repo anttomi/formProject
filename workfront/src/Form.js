@@ -10,7 +10,7 @@ function Form() {
     const [complete, setComplete] = useState(false)
 
     const fetchQuestion = () => {
-        fetch('https://fromproject.herokuapp.com/questions')
+        fetch('http://formproject6.herokuapp.com/questions')
         .then(response => response.json())
         .then(data => setQuestion({title: data[0].title, answer: data[0].answer, type: data[0].type}))
         .catch(err => console.error(err))
