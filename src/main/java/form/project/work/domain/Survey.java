@@ -1,5 +1,6 @@
 package form.project.work.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -19,7 +20,7 @@ public class Survey {
     private Long id;
     private String name;
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy="form")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="survey")
     private List<Question> questions;
     
     public Survey() {
@@ -30,7 +31,7 @@ public class Survey {
     public Survey(String name, List<Question> questions) {
 	super();
 	this.name = name;
-	this.questions = questions;
+	this.questions = new ArrayList<>();
     }
 
 

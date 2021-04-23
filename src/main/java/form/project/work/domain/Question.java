@@ -22,7 +22,7 @@ public class Question {
 	private String title, answer, type;
 	private List<String> choices;
 	@ManyToOne
-	@JoinColumn(name="form")
+	@JoinColumn(name="survey")
 	private Survey survey;
 	
 	public Question () {
