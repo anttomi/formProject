@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import form.project.work.domain.Question;
 import form.project.work.domain.QuestionRepository;
+import form.project.work.domain.Survey;
 
 
 @Controller
@@ -41,11 +42,17 @@ public class FormController {
 	    return (List<Question>) qRepository.findAll();
 	}
 	
-	@RequestMapping(value = "/add")
+	@RequestMapping(value = "/addsurvey")
+	public String addQuestion(Model model){
+	 model.addAttribute("survey", new Survey());
+	 return "addsurvey";
+	}
+	
+	/*@RequestMapping(value = "/addquestion")
 	public String addQuestion(Model model){
 	 model.addAttribute("question", new Question());
 	 return "addquestion";
-	}
+	}*/
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(Question question){
