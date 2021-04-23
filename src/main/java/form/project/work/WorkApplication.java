@@ -35,8 +35,11 @@ public class WorkApplication {
 			
 			log.info("first questions");
 			
-			repository.save(new Question("Mitä kuuluu", "jotain", "checkbox"));
-			repository.save(new Question("toinen ksymys", "sama", "checkbox"));	
+			String[] choices1 = {"kyllä", "en tiedä", "ei"};
+			String[] choices2 = {"Olen samaa mieltä", "En osaa sanoa", "Olen eri mieltä"};
+			
+			repository.save(new Question("Mitä kuuluu", "jotain", "checkbox", choices1));
+			repository.save(new Question("toinen ksymys", "sama", "checkbox", choices2));	
 			
 			log.info("fetch all questions");
 			for (Question question : repository.findAll()) {

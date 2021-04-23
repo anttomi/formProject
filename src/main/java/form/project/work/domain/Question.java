@@ -1,8 +1,5 @@
 package form.project.work.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +17,7 @@ public class Question {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String title, answer, type;
-	private List<String> choices;
+	private String[] choices;
 	@ManyToOne
 	@JoinColumn(name="survey")
 	private Survey survey;
@@ -29,21 +26,21 @@ public class Question {
 	    
 	}
 
-	public Question(String title, String answer, String type, List<String> choices) {
+	public Question(String title, String answer, String type, String[] choices) {
 		super();
 		this.title = title;
 		this.answer = answer;
 		this.type = type;
-		this.choices = new ArrayList<>();
+		this.choices = choices;
 	}
 
 
 
-	public List<String> getChoices() {
+	public String[] getChoices() {
 	    return choices;
 	}
-
-	public void setChoices(List<String> choices) {
+	
+	public void setChoices(String[] choices) {
 	    this.choices = choices;
 	}
 
