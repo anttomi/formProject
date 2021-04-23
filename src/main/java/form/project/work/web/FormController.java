@@ -17,10 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import form.project.work.domain.Question;
 import form.project.work.domain.QuestionRepository;
 import form.project.work.domain.Survey;
-<<<<<<< HEAD
-=======
 import form.project.work.domain.SurveyRepository;
->>>>>>> 9f839084cb0800ba975784742bb062ca1c5d4fef
 
 
 @Controller
@@ -49,7 +46,12 @@ public class FormController {
 	    return (List<Question>) qRepository.findAll();
 	}
 	
-<<<<<<< HEAD
+	@CrossOrigin(origins = "http://localhost:3000")
+	@GetMapping(value = "/surveys")
+	public @ResponseBody List<Survey> surveyRest() {
+	    return (List<Survey>) sRepository.findAll();
+	}
+	
 	@RequestMapping(value = "/addsurvey")
 	public String addQuestion(Model model){
 	 model.addAttribute("survey", new Survey());
