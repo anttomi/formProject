@@ -12,6 +12,8 @@ import form.project.work.domain.UserRepository;
 import net.minidev.json.JSONArray;
 import form.project.work.domain.Question;
 import form.project.work.domain.QuestionRepository;
+import form.project.work.domain.Survey;
+import form.project.work.domain.SurveyRepository;
 
 
 @SpringBootApplication
@@ -23,7 +25,7 @@ public class WorkApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner Results(QuestionRepository repository, UserRepository urepository) {
+	public CommandLineRunner Results(QuestionRepository repository, UserRepository urepository, SurveyRepository srepository) {
 		return (args) -> {
 			
 			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
@@ -39,8 +41,13 @@ public class WorkApplication {
 			String[] choices2 = {"Olen samaa mieltä", "En osaa sanoa", "Olen eri mieltä"};
 			
 			repository.save(new Question("Mitä kuuluu", "jotain", "checkbox", choices1));
-			repository.save(new Question("toinen ksymys", "sama", "checkbox", choices2));	
+			repository.save(new Question("toinen ksymys", "sama", "checkbox", choices2));
 			
+			Survey survey1 = new Survey("kysely1");
+			Survey survey2 = new Survey("kysely2");
+			
+			srepository.save(survey1);
+			srepository.save(survey2);
 			log.info("fetch all questions");
 			for (Question question : repository.findAll()) {
 				log.info(question.toString());

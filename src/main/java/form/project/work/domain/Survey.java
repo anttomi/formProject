@@ -27,6 +27,9 @@ public class Survey {
 	
     }
 
+    public Survey(String name) {
+	
+    }
     
     public Survey(String name, List<Question> questions) {
 	super();
