@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Form {
+public class Survey {
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -22,12 +22,12 @@ public class Form {
     @OneToMany(cascade = CascadeType.ALL, mappedBy="form")
     private List<Question> questions;
     
-    public Form() {
+    public Survey() {
 	
     }
 
     
-    public Form(String name, List<Question> questions) {
+    public Survey(String name, List<Question> questions) {
 	super();
 	this.name = name;
 	this.questions = questions;

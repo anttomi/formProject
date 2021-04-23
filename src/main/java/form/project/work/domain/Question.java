@@ -1,5 +1,8 @@
 package form.project.work.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,22 +20,40 @@ public class Question {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String title, answer, type;
+	private List<String> choices;
 	@ManyToOne
 	@JoinColumn(name="form")
-	private Form form;
+	private Survey survey;
 	
 	public Question () {
 	    
 	}
 
-	public Question(String title, String answer, String type) {
+	public Question(String title, String answer, String type, List<String> choices) {
 		super();
 		this.title = title;
 		this.answer = answer;
 		this.type = type;
+		this.choices = new ArrayList<>();
 	}
 
 
+
+	public List<String> getChoices() {
+	    return choices;
+	}
+
+	public void setChoices(List<String> choices) {
+	    this.choices = choices;
+	}
+
+	public Survey getSurvey() {
+	    return survey;
+	}
+
+	public void setSurvey(Survey survey) {
+	    this.survey = survey;
+	}
 
 	public Long getId() {
 		return id;
