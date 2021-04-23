@@ -20,7 +20,6 @@ import form.project.work.domain.Survey;
 import form.project.work.domain.SurveyRepository;
 
 
-
 @Controller
 public class FormController {
 	
@@ -47,6 +46,12 @@ public class FormController {
 	    return (List<Question>) qRepository.findAll();
 	}
 	
+
+	@CrossOrigin(origins = "http://localhost:3000")
+	@GetMapping(value = "/surveys")
+	public @ResponseBody List<Survey> surveyRest() {
+	    return (List<Survey>) sRepository.findAll();
+	}
 
 	@RequestMapping(value = "/addsurvey")
 	public String addQuestion(Model model){
