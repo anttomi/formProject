@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<title> new survey</title>
+</head>
+<body>
+
+<div class="container">
+<h1>Create a new survey</h1>
+<div class="col-md-4">
+ <form th:object="${survey}" th:action="@{save}" action="#" method="post">
+ 
+  <div>
+  <label for="name">Survey name<input type="text" th:field= "*{name}" class="form-control"></label>
+  </div>
+ 
+
+ <input type="submit" value="Save"  class="btn btn-success"></input>
+ </form>
+</div>
+</div>
+
+
+</body>
+</html>

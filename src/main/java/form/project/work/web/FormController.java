@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import form.project.work.domain.Question;
 import form.project.work.domain.QuestionRepository;
+import form.project.work.domain.Survey;
+import form.project.work.domain.SurveyRepository;
 
 
 @Controller
@@ -23,6 +25,9 @@ public class FormController {
 	
 	@Autowired
 	private QuestionRepository qRepository;
+	
+	@Autowired
+	private SurveyRepository sRepository;
 	
 	@RequestMapping(value="/login")
 	public String login() {	
@@ -41,11 +46,33 @@ public class FormController {
 	    return (List<Question>) qRepository.findAll();
 	}
 	
+
+	@CrossOrigin(origins = "http://localhost:3000")
+	@GetMapping(value = "/surveys")
+	public @ResponseBody List<Survey> surveyRest() {
+	    return (List<Survey>) sRepository.findAll();
+	}
+
+	@RequestMapping(value = "/addsurvey")
+	public String addQuestion(Model model){
+	 model.addAttribute("survey", new Survey());
+	 return "addsurvey";
+	}
+	
+	/*@RequestMapping(value = "/addquestion")
+=======
+	@CrossOrigin(origins = "http://localhost:3000")
+	@GetMapping(value = "/surveys")
+	public @ResponseBody List<Survey> surveyRest() {
+	    return (List<Survey>) sRepository.findAll();
+	}
+	
 	@RequestMapping(value = "/add")
+>>>>>>> 9f839084cb0800ba975784742bb062ca1c5d4fef
 	public String addQuestion(Model model){
 	 model.addAttribute("question", new Question());
 	 return "addquestion";
-	}
+	}*/
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(Question question){
