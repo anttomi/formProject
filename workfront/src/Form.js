@@ -4,36 +4,43 @@ import "survey-react/survey.css";
 
 
 function Form() {
-  
+  /**
   const [question, setQuestion] = useState({id: null, title: "", type: "", choices: ([]) });
   const [answer, setAnswer] = useState()
-  
+   */
   const [complete, setComplete] = useState(false)
- 
-
-  useEffect (() => {
-
-    fetchQuestion();
-    },[])
-
+     
+  let json = {
+    questions: [
+     ]
+  }
 
   const fetchQuestion = () => {
     fetch('https://formproject6.herokuapp.com/questions')
       .then(response => response.json())
-      .then(data => setQuestion({id: data[0].id, title: data[0].title, type: data[0].type, choices: data[0].choices}))
+      .then(data => {
+        let i = 0;
+        while (i < data.length) {
+          json.questions[i] = {
+            id: data[i].id,
+            type: data[i].type,
+            title: data[i].title,
+            choices: data[i].choices
+          }
+          i++;
+          
+        }
+      }
+      )
       .catch(err => console.error(err))
   }
 
-  let json = {
-    questions: [
-      {
-        id: question.id,
-        type: question.type,
-        title: question.title,
-        choices: question.choices
-      }
-     ]
-    }
+  useEffect (() => {
+
+    fetchQuestion();
+
+    },[])
+  
 
   const onComplete = () => {
     setComplete(true);
