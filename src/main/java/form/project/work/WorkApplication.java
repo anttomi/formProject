@@ -40,7 +40,7 @@ public class WorkApplication {
 			String[] choices1 = {"kyllä", "en tiedä", "ei"};
 			String[] choices2 = {"Olen samaa mieltä", "En osaa sanoa", "Olen eri mieltä"};
 			
-			repository.save(new Question("Mitä kuuluu", "jotain", "text", choices1));
+			repository.save(new Question("Mitä kuuluu", "jotain", "text", null));
 			repository.save(new Question("toinen ksymys", "sama", "checkbox", choices2));
 			
 			Survey survey1 = new Survey("kysely1");
