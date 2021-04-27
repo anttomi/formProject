@@ -42,11 +42,11 @@ public class WorkApplication {
 			String[] choices1 = {"kyllä", "en tiedä", "ei"};
 			String[] choices2 = {"Olen samaa mieltä", "En osaa sanoa", "Olen eri mieltä"};
 			
-			Answer answer1 = new Answer(choices1);
-			Answer answer2 = new Answer(choices2);
+			Answer answer1 = new Answer("vastaus");
+			Answer answer2 = new Answer("vastaus2");
 			
 			repository.save(new Question("Mitä kuuluu","text"));
-			repository.save(new Question("toinen ksymys", "checkbox"));
+			repository.save(new Question("toinen ksymys", "checkbox", choices1));
 			
 			
 			Survey survey1 = new Survey("kysely1");

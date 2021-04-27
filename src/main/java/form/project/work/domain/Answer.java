@@ -13,18 +13,17 @@ public class Answer {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	private String[] choices;
+	private String input;
 	
 	
 	@ManyToOne
 	@JoinColumn(name="question")
 	private Question question;
 	
-
-
-	public Answer(String[] choices) {
+	
+	public Answer(String input) {
 		super();
-		this.choices = choices;
+		this.input = input;
 
 	}
 
@@ -42,17 +41,26 @@ public class Answer {
 	public void setId(long id) {
 		this.id = id;
 	}
-
-
-	public String[] getChoices() {
-		return choices;
-	}
-
-
-	public void setChoices(String[] choices) {
-		this.choices = choices;
-	}
 	
+
+	public Question getQuestion() {
+		return question;
+	}
+
+
+	public void setQuestion(Question question) {
+		this.question = question;
+	}
+
+
+	public String getInput() {
+		return input;
+	}
+
+
+	public void setInput(String input) {
+		this.input = input;
+	}
 
 }
 
