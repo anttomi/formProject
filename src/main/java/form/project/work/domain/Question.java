@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 
 
@@ -16,32 +17,25 @@ public class Question {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	private String title, answer, type;
-	private String[] choices;
+	private String title, type;
+	
 	@ManyToOne
 	@JoinColumn(name="survey")
 	private Survey survey;
+	
+	@OneToMany
+	@JoinColumn(name="answer")
+	private Answer answer;
 	
 	public Question () {
 	    
 	}
 
-	public Question(String title, String answer, String type, String[] choices) {
+	public Question(String title,String type, String[] choices) {
 		super();
 		this.title = title;
-		this.answer = answer;
 		this.type = type;
-		this.choices = choices;
-	}
-
-
-
-	public String[] getChoices() {
-	    return choices;
-	}
-	
-	public void setChoices(String[] choices) {
-	    this.choices = choices;
+		
 	}
 
 	public Survey getSurvey() {
@@ -68,13 +62,6 @@ public class Question {
 		this.title = title;
 	}
 
-	public String getAnswer() {
-		return answer;
-	}
-
-	public void setAnswer(String answer) {
-		this.answer = answer;
-	}
 
 	public String getType() {
 		return type;

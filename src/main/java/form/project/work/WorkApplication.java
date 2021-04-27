@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 import form.project.work.domain.User;
 import form.project.work.domain.UserRepository;
 import net.minidev.json.JSONArray;
+import form.project.work.domain.AnswerRepository;
 import form.project.work.domain.Question;
 import form.project.work.domain.QuestionRepository;
 import form.project.work.domain.Survey;
@@ -25,7 +26,7 @@ public class WorkApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner Results(QuestionRepository repository, UserRepository urepository, SurveyRepository srepository) {
+	public CommandLineRunner Results(QuestionRepository repository, UserRepository urepository, SurveyRepository srepository, AnswerRepository arepsitory ) {
 		return (args) -> {
 			
 			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
