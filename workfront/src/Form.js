@@ -9,31 +9,9 @@ function Form() {
   const [answer, setAnswer] = useState()
    */
   const [complete, setComplete] = useState(false)
+  const [json, setJson] = useState({questions: []})
      
-  let json = {
-    questions: [
-     ]
-  }
-
-  const fetchQuestion = () => {
-    fetch('https://formproject6.herokuapp.com/questions')
-      .then(response => response.json())
-      .then(data => {
-        let i = 0;
-        while (i < data.length) {
-          json.questions[i] = {
-            id: data[i].id,
-            type: data[i].type,
-            title: data[i].title,
-            choices: data[i].choices
-          }
-          i++;
-          
-        }
-      }
-      )
-      .catch(err => console.error(err))
-  }
+  
 
   useEffect (() => {
 
@@ -41,6 +19,34 @@ function Form() {
 
     },[])
   
+  const fetchQuestion = () => {
+    
+    fetch('https://formproject6.herokuapp.com/questions')
+      .then(response => response.json())
+      .then(data => {
+        let jsonQ = {
+          questions: [
+           ]
+        }
+        let i = 0;
+        while (i < data.length) {
+          jsonQ.questions[i] = {
+            id: data[i].id,
+            type: data[i].type,
+            title: data[i].title,
+            choices: data[i].choices
+          }
+          i++; 
+          
+        }
+        setJson(jsonQ)
+      }
+      )
+      .catch(err => console.error(err))
+  }
+
+  console.log(json)
+
 
   const onComplete = () => {
     setComplete(true);
