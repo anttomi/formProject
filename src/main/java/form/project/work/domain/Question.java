@@ -31,7 +31,7 @@ public class Question {
 	    
 	}
 
-	public Question(String title,String type, String[] choices) {
+	public Question(String title, String type) {
 		super();
 		this.title = title;
 		this.type = type;

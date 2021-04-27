@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 import form.project.work.domain.User;
 import form.project.work.domain.UserRepository;
 import net.minidev.json.JSONArray;
+import form.project.work.domain.Answer;
 import form.project.work.domain.AnswerRepository;
 import form.project.work.domain.Question;
 import form.project.work.domain.QuestionRepository;
@@ -41,8 +42,12 @@ public class WorkApplication {
 			String[] choices1 = {"kyllä", "en tiedä", "ei"};
 			String[] choices2 = {"Olen samaa mieltä", "En osaa sanoa", "Olen eri mieltä"};
 			
-			repository.save(new Question("Mitä kuuluu", "jotain", "text", null));
-			repository.save(new Question("toinen ksymys", "sama", "checkbox", choices2));
+			Answer answer1 = new Answer(choices1);
+			Answer answer2 = new Answer(choices2);
+			
+			repository.save(new Question("Mitä kuuluu","text"));
+			repository.save(new Question("toinen ksymys", "checkbox"));
+			
 			
 			Survey survey1 = new Survey("kysely1");
 			Survey survey2 = new Survey("kysely2");

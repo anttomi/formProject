@@ -22,10 +22,10 @@ public class Answer {
 	
 
 
-	public Answer(String[] choices, Question question) {
+	public Answer(String[] choices) {
 		super();
 		this.choices = choices;
-		this.question = question;
+
 	}
 
 
@@ -52,17 +52,6 @@ public class Answer {
 	public void setChoices(String[] choices) {
 		this.choices = choices;
 	}
-
-
-	public Question getQuestion() {
-		return question;
-	}
-
-
-	public void setQuestion(Question question) {
-		this.question = question;
-	}
-	
 	
 
 }
