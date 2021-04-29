@@ -27,7 +27,7 @@ public class WorkApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner Results(QuestionRepository repository, UserRepository urepository, SurveyRepository srepository, AnswerRepository arepsitory ) {
+	public CommandLineRunner Results(QuestionRepository repository, UserRepository urepository, SurveyRepository srepository, AnswerRepository arepository ) {
 		return (args) -> {
 			
 			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");

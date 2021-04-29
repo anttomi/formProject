@@ -21,7 +21,7 @@ import form.project.work.domain.QuestionRepository;
 import form.project.work.domain.Survey;
 import form.project.work.domain.SurveyRepository;
 
-
+@CrossOrigin
 @Controller
 public class QuestionController {
 	
@@ -43,15 +43,11 @@ public class QuestionController {
 		return "questions";
 	}
 	
-	
-	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping(value = "/questions")
 	public @ResponseBody List<Question> questionRest() {
 	    return (List<Question>) qRepository.findAll();
 	}
 	
-
-	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping(value = "/surveys")
 	public @ResponseBody List<Survey> surveyRest() {
 	    return (List<Survey>) sRepository.findAll();

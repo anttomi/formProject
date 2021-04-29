@@ -1,23 +1,32 @@
 package form.project.work.web;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import java.util.List;
 
-@Controller
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import form.project.work.domain.Answer;
+import form.project.work.domain.AnswerRepository;
+
+@CrossOrigin
+@RestController
 public class AnswerController {
 	
-	@RequestMapping(value = "/")
-	public ResponseEntity<Answer> get() {
-
-	}
+	@Autowired
+	private AnswerRepository arepository;
 	
-	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public ResponseEntity<RequestWrapper> updateWithMultipleObjects(
-	        @RequestBody RequestWrapper requestWrapper) {
-
-	    return new ResponseEntity<RequestWrapper>(requestWrapper, HttpStatus.OK);
+	@GetMapping(value = "/answers")
+	List<Answer> all() {
+		return (List<Answer>) arepository.findAll();
+		
 	}
 
+	@PostMapping("/answer")
+	Answer newAnswer(@RequestBody Answer newAnswer) {
+		return arepository.save(newAnswer);
+	}
 }
