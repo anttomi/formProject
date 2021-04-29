@@ -1,10 +1,12 @@
 package form.project.work.web;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,5 +29,10 @@ public class AnswerController {
 	@PostMapping("/answers")
 	Answer newAnswer(@RequestBody Answer newAnswer) {
 		return arepository.save(newAnswer);
+	}
+	
+	@GetMapping(value = "/answer/{id}")
+	Optional<Answer> single(@PathVariable("id") Long id) {
+	    return arepository.findById(id);
 	}
 }
