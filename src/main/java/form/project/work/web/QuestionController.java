@@ -1,8 +1,12 @@
 package form.project.work.web;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,6 +28,7 @@ public class QuestionController {
 	@Autowired
 	private QuestionRepository qRepository;
 	
+	
 	@Autowired
 	private SurveyRepository sRepository;
 	
@@ -37,6 +42,7 @@ public class QuestionController {
 		model.addAttribute("questions", qRepository.findAll());
 		return "questions";
 	}
+	
 	
 	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping(value = "/questions")
