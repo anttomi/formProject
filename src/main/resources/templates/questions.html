@@ -18,7 +18,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 		<tr th:each="question : ${questions}">
 			<td th:text="${question.title}" /></td>
 			<td th:text="${question.type}" /></td>
-			<td th:each="$choices : ${question.choices}"></td>
+			<!-- <td th:each="$choices : ${question.choices}"></td> -->
 		</tr>
 	</table>
 	
