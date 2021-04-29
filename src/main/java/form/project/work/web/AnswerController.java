@@ -21,11 +21,10 @@ public class AnswerController {
 	
 	@GetMapping(value = "/answers")
 	List<Answer> all() {
-		return (List<Answer>) arepository.findAll();
-		
+		return (List<Answer>) arepository.findAll();	
 	}
 
-	@PostMapping("/answer")
+	@PostMapping("/answers")
 	Answer newAnswer(@RequestBody Answer newAnswer) {
 		return arepository.save(newAnswer);
 	}
