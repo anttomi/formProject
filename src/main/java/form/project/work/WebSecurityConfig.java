@@ -1,5 +1,5 @@
-//package form.project.work;
-/**
+package form.project.work;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	    
 	    http
 	   .authorizeRequests()
-	   	.antMatchers("/css/**", "/questions", "/answers").permitAll()
+	   	.antMatchers("/css/**", "/questions", "/answers", "/question/{id}", "/answer/{id}").permitAll()
 	   	.and()
 	   	.authorizeRequests().anyRequest().authenticated()
 	   	.and()
@@ -71,5 +71,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new InMemoryUserDetailsManager(users);
     
 }
-*/}
+}
 
