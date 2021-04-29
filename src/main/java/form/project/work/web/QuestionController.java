@@ -58,7 +58,7 @@ public class QuestionController {
 	}
 	
 	@GetMapping("/question/{id}")
-	Optional<Question> single(@PathVariable("id") Long id) {
+	public @ResponseBody Optional<Question> single(@PathVariable("id") Long id) {
 	    return qRepository.findById(id);
 	}
 	
