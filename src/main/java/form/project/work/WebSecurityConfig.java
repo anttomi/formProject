@@ -1,5 +1,5 @@
-package form.project.work;
-
+//package form.project.work;
+/**
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +26,7 @@ import form.project.work.web.UserDetailServiceImpl;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    /**
+    
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 	    
