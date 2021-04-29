@@ -10,11 +10,16 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 	<h1>Questions</h1>
 	
 	<table>
-	<tr th:each="question : ${questions}">
-	<td th:text="${question.title}"/></td>
-	<td th:text="${question.answer}"/></td>
-	<td> <input/></td>
+	<tr>
+	<th>Title
+	<th>Type</th>
+	<th>Choices</th>
 	</tr>
+		<tr th:each="question : ${questions}">
+			<td th:text="${question.title}" /></td>
+			<td th:text="${question.type}" /></td>
+			<td th:each="$choices : ${question.choices}"></td>
+		</tr>
 	</table>
 	
 	<a href="/addsurvey" class="btn btn-primary">Create a new survey</a><br><br>
