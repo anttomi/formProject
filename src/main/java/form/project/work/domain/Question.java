@@ -44,7 +44,7 @@ public class Question {
 	}
 
 
-	public Question(String title, String type, String[] choices, List<Answer> answers) {
+	public Question(String title, String type, String[] choices) {
 		super();
 		this.title = title;
 		this.type = type;

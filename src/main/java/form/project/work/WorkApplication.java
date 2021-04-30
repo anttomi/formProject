@@ -53,8 +53,8 @@ public class WorkApplication {
 			answers.add(answer1);
 			answers.add(answer2);
 			
-			Question q1 = new Question("Mitä kuuluu","text", answers);
-			Question q2 = new Question("toinen ksymys", "checkbox", choices1, answers);
+			Question q1 = new Question("Mitä kuuluu","text");
+			Question q2 = new Question("toinen ksymys", "checkbox", choices1);
 			
 			repository.save(q1);
 			repository.save(q2);
@@ -65,7 +65,7 @@ public class WorkApplication {
 			qt.add(q1);
 			qt.add(q2);
 			
-			Survey survey1 = new Survey("kysely1", qt);
+			Survey survey1 = new Survey("kysely1");
 			Survey survey2 = new Survey("kysely2");
 			
 			srepository.save(survey1);
