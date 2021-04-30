@@ -23,6 +23,10 @@ public class Question {
 	private String title, type;
 	private String[] choices;
 	
+	@ManyToOne
+	@JoinColumn(name="survey")
+	private Survey survey;
+	
 	@OneToMany
 	@JoinColumn(name="answer")
 	private List<Answer> answers;
