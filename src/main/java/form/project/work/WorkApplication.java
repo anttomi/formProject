@@ -1,5 +1,8 @@
 package form.project.work;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -45,11 +48,24 @@ public class WorkApplication {
 			Answer answer1 = new Answer("vastaus");
 			Answer answer2 = new Answer("vastaus2");
 			
-			repository.save(new Question("Mitä kuuluu","text"));
-			repository.save(new Question("toinen ksymys", "checkbox", choices1));
+			List<Answer> answers = new ArrayList<>();
+			
+			answers.add(answer1);
+			answers.add(answer2);
+			
+			Question q1 = new Question("Mitä kuuluu","text", answers);
+			Question q2 = new Question("toinen ksymys", "checkbox", choices1, answers);
+			
+			repository.save(q1);
+			repository.save(q2);
 			
 			
-			Survey survey1 = new Survey("kysely1");
+			List<Question> qt = new ArrayList<>();
+			
+			qt.add(q1);
+			qt.add(q2);
+			
+			Survey survey1 = new Survey("kysely1", qt);
 			Survey survey2 = new Survey("kysely2");
 			
 			srepository.save(survey1);

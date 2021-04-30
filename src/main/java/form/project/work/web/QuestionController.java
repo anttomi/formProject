@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -57,11 +58,15 @@ public class QuestionController {
 	    return qRepository.save(newQuestion);
 	}
 	
+//	@PutMapping(value = "/updatequestion")
+//	Question newQuestion (@RequestBody Question newQuestion) {
+//	    return qRepository.save(qRepository.findById(newQuestion.getId()));
+//	}
+	
 	@GetMapping("/question/{id}")
 	public @ResponseBody Optional<Question> single(@PathVariable("id") Long id) {
 	    return qRepository.findById(id);
 	}
-	
 	
 	
 	@GetMapping(value = "/surveys")
