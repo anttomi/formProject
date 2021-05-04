@@ -33,7 +33,7 @@ public class AnswerController {
 	}
 
 	@PostMapping("/answers")
-	Answer newAnswer(@RequestBody Answer newAnswer) {
+	public Answer newAnswer(@RequestBody Answer newAnswer) {
 	    	log.info(newAnswer.toString());
 		return arepository.save(newAnswer);
 	}

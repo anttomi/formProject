@@ -14,7 +14,7 @@ function Form() {
      
   const saveAnswer = () => {
 
-    fetch('https://formproject6.herokuapp.com/questions',
+    fetch('https://formproject6.herokuapp.com/answers',
     {
       method: 'POST',
       body: JSON.stringify(answer),
