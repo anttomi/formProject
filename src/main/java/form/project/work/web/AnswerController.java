@@ -32,6 +32,7 @@ public class AnswerController {
 		return (List<Answer>) arepository.findAll();	
 	}
 
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/answers")
 	public Answer newAnswer(@RequestBody Answer newAnswer) {
 	    	log.info(newAnswer.toString());
