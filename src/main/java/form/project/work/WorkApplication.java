@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Bean;
 
 import form.project.work.domain.User;
 import form.project.work.domain.UserRepository;
-import net.minidev.json.JSONArray;
 import form.project.work.domain.Answer;
 import form.project.work.domain.AnswerRepository;
 import form.project.work.domain.Question;

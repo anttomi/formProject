@@ -62,6 +62,12 @@ public class Answer {
 		this.input = input;
 	}
 
+
+	@Override
+	public String toString() {
+	    return "Answer [id=" + id + ", input=" + input + ", question=" + question + "]";
+	}
+
 }
 
 

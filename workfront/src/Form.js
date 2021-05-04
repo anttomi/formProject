@@ -10,7 +10,7 @@ function Form() {
    */
   const [complete, setComplete] = useState(false)
   const [json, setJson] = useState({questions: []})
-  const [answer, setAnswer] = React.useState({input:'' })
+  const [answer, setAnswer] = React.useState({input:'testivastaus' })
      
   const saveAnswer = () => {
 
@@ -61,6 +61,7 @@ function Form() {
 
   const onComplete = () => {
     setComplete(true);
+    saveAnswer();
   }
 
   var surveyRender = !complete ? (
