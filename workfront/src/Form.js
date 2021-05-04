@@ -12,15 +12,17 @@ function Form() {
   const [json, setJson] = useState({questions: []})
   const [answer, setAnswer] = React.useState({input:'testivastaus' })
      
-  const saveAnswer = () => {
+  const saveAnswer = async () => {
+    console.log(answer)
 
-    fetch('https://formproject6.herokuapp.com/answers',
+    await fetch('https://formproject6.herokuapp.com/answers',
     {
       method: 'POST',
+      mode: "no-cors",
       body: JSON.stringify(answer),
       headers: { 'Content-type' : 'application/json'  }
     })
-    .then(_ => fetchQuestion())
+    //.then(_ => fetchQuestion())
     .catch(err => console.error(err))
   }
 
