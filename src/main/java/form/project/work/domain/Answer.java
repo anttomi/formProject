@@ -24,7 +24,6 @@ public class Answer {
 	public Answer(String input) {
 		super();
 		this.input = input;
-
 	}
 
 

@@ -10,7 +10,7 @@ function Form() {
    */
   const [complete, setComplete] = useState(false)
   const [json, setJson] = useState({questions: []})
-  const [answer, setAnswer] = React.useState({input:'testivastaus' })
+  const [answer, setAnswer] = React.useState({input:'testi', question: {id: 3}})
      
   const saveAnswer = async () => {
     console.log(answer)
