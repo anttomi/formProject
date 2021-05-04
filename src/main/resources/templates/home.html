@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<title>formtest</title>
+</head>
+<body>
+
+	<h1>Admin survey page</h1>
+	<!--
+	<table>
+	<tr>
+	<th>Title
+	<th>Type</th>
+	<th>Choices</th>
+	</tr>
+		<tr th:each="question : ${questions}">
+			<td th:text="${question.title}" /></td>
+			<td th:text="${question.type}" /></td>
+			 <td th:each="$choices : ${question.choices}"></td> 
+		</tr>
+	</table>-->
+	
+	<a href="/addsurvey" class="btn btn-primary">Create a new survey</a><br><br>
+	<a href="/surveys" class="btn btn-primary">Surveys</a><br><br>
+	<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger" style="padding:10px 10"/>
+		</form>
+
+</body>
+</html>
