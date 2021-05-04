@@ -28,7 +28,7 @@ public class Survey {
     }
 
     public Survey(String name) {
-	
+	this.name = name;
     }
     
     public Survey(String name, List<Question> questions) {

@@ -53,6 +53,9 @@ public class WorkApplication {
 			answers.add(answer1);
 			answers.add(answer2);
 			
+			arepository.save(answer1);
+			arepository.save(answer2);
+			
 			Question q1 = new Question("Mitä kuuluu","text");
 			Question q2 = new Question("toinen ksymys", "checkbox", choices1);
 			

@@ -17,7 +17,7 @@ public class Answer {
 	
 	
 	@ManyToOne
-	@JoinColumn(name="question")
+	@JoinColumn(name="questionid")
 	private Question question;
 	
 	
