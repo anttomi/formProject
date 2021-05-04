@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import form.project.work.WorkApplication;
+
 import form.project.work.domain.Answer;
 import form.project.work.domain.AnswerRepository;
-import lombok.extern.java.Log;
+
 
 @CrossOrigin
 @RestController
@@ -32,6 +32,7 @@ public class AnswerController {
 		return (List<Answer>) arepository.findAll();	
 	}
 
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/answers")
 	public Answer newAnswer(@RequestBody Answer newAnswer) {
 	    	log.info(newAnswer.toString());
