@@ -10,8 +10,19 @@ function Form() {
    */
   const [complete, setComplete] = useState(false)
   const [json, setJson] = useState({questions: []})
+  const [answer, setAnswer] = React.useState({input:'' })
      
-  
+  const saveAnswer = () => {
+
+    fetch('https://formproject6.herokuapp.com/questions',
+    {
+      method: 'POST',
+      body: JSON.stringify(answer),
+      headers: { 'Content-type' : 'application/json'  }
+    })
+    .then(_ => fetchQuestion())
+    .catch(err => console.error(err))
+  }
 
   useEffect (() => {
 
