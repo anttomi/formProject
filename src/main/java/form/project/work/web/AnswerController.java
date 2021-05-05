@@ -32,20 +32,20 @@ public class AnswerController {
 		return (List<Answer>) arepository.findAll();	
 	}
 	
-	/**
-	@CrossOrigin(origins = "http://localhost:3000")
-	@PostMapping("/answers")
-	public Answer newAnswer(@RequestBody Answer newAnswer) {
-	    	log.info(newAnswer.toString());
-		return arepository.save(newAnswer);
-	}
-	*/
 	
 	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/answers")
-	public void test(@RequestBody String stringtest) {
-	    log.info(stringtest);
+	public Answer newAnswer(@RequestBody Answer newAnswer) {
+	    	log.info("onnistui");
+		return arepository.save(newAnswer);
 	}
+	
+	
+//	@CrossOrigin(origins = "http://localhost:3000")
+//	@PostMapping("/answers")
+//	public void test(@RequestBody String stringtest) {
+//	    log.info("testi");
+//	}
 	
 	@GetMapping(value = "/answer/{id}")
 	Optional<Answer> single(@PathVariable("id") Long id) {

@@ -16,9 +16,9 @@ public class Answer {
 	private String input;
 	
 	
-	@ManyToOne
-	@JoinColumn(name="questionid")
-	private Question question;
+//	@ManyToOne
+//	@JoinColumn(name="questionid")
+//	private Question question;
 	
 	
 	public Answer(String input) {
@@ -42,14 +42,14 @@ public class Answer {
 	}
 	
 
-	public Question getQuestion() {
-		return question;
-	}
-
-
-	public void setQuestion(Question question) {
-		this.question = question;
-	}
+//	public Question getQuestion() {
+//		return question;
+//	}
+//
+//
+//	public void setQuestion(Question question) {
+//		this.question = question;
+//	}
 
 
 	public String getInput() {
@@ -64,7 +64,7 @@ public class Answer {
 
 	@Override
 	public String toString() {
-	    return "Answer [id=" + id + ", input=" + input + ", question=" + question + "]";
+	    return "Answer [id=" + id + ", input=" + input + ", question=" + "]";
 	}
 
 }

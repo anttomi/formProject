@@ -10,7 +10,7 @@ function Form() {
    */
   const [complete, setComplete] = useState(false)
   const [json, setJson] = useState({questions: []})
-  const [answer, setAnswer] = React.useState({input:'testi', question: {id: 3}})
+  const [answer, setAnswer] = React.useState({input: 'testi'})
      
   const saveAnswer = async () => {
     console.log(answer)
@@ -18,7 +18,6 @@ function Form() {
     await fetch('https://formproject6.herokuapp.com/answers',
     {
       method: 'POST',
-      mode: "no-cors",
       body: JSON.stringify(answer),
       headers: { 'Content-type' : 'application/json'  }
     })
