@@ -73,9 +73,6 @@ public class WorkApplication {
 			srepository.save(survey1);
 			srepository.save(survey2);
 			log.info("fetch all questions");
-			for (Question question : repository.findAll()) {
-				log.info(question.toString());
-			}
 		
 			};
 	}

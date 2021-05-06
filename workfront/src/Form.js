@@ -10,12 +10,12 @@ function Form() {
    */
   const [complete, setComplete] = useState(false)
   const [json, setJson] = useState({questions: []})
-  const [answer, setAnswer] = React.useState({input: 'testi'})
+  const [answer, setAnswer] = React.useState({question: {questionid: 3}, input: ''})
      
   const saveAnswer = async () => {
     console.log(answer)
 
-    await fetch('https://formproject6.herokuapp.com/answers',
+    await fetch('http://localhost:8080/answers',
     {
       method: 'POST',
       body: JSON.stringify(answer),
@@ -25,6 +25,12 @@ function Form() {
     .catch(err => console.error(err))
   }
 
+  const inputChanged = (event) => {
+    setAnswer({ ...answer, [event.target.name]: event.target.value });
+  }
+
+
+
   useEffect (() => {
 
     fetchQuestion();
@@ -33,7 +39,7 @@ function Form() {
   
   const fetchQuestion = () => {
     
-    fetch('https://formproject6.herokuapp.com/questions')
+    fetch('http://localhost:8080/questions')
       .then(response => response.json())
       .then(data => {
         let jsonQ = {
@@ -62,7 +68,9 @@ function Form() {
 
   const onComplete = () => {
     setComplete(true);
+    setAnswer();
     saveAnswer();
+    
   }
 
   var surveyRender = !complete ? (

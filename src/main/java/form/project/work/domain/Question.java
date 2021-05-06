@@ -1,8 +1,10 @@
 package form.project.work.domain;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 
@@ -19,7 +23,7 @@ public class Question {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private Long questionid;
 	private String title, type;
 	private String[] choices;
 	
@@ -27,15 +31,26 @@ public class Question {
 	@JoinColumn(name="survey")
 	private Survey survey;
 	
-	@OneToMany
-	@JoinColumn(name="answer")
+	@JsonIgnore
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
 	private List<Answer> answers;
 	
 	public Question () {
 	    
 	}
-
 	
+	
+	public Question(Long id, String title, String type, String[] choices, Survey survey, List<Answer> answers) {
+		super();
+		this.questionid = id;
+		this.title = title;
+		this.type = type;
+		this.choices = choices;
+		this.survey = survey;
+		this.answers = answers;
+	}
+
+
 	public Question(String title, String type, List<Answer> answers) {
 	    super();
 	    this.title = title;
@@ -60,13 +75,15 @@ public class Question {
 	}
 
 
-	public Long getId() {
-		return id;
+
+	public void setQuestionid(Long questionid) {
+		this.questionid = questionid;
+	}
+	
+	public Long getQuestionid() {
+		return questionid;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getTitle() {
 		return title;
@@ -98,7 +115,14 @@ public class Question {
 	}
 
 	public void setAnswers(List<Answer> answers) {
-		this.answers = answers;
+	this.answers = answers;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Question [questionid=" + questionid + ", title=" + title + ", type=" + type + ", choices="
+				+ Arrays.toString(choices) + ", survey=" + survey + "]";
 	}
 	
 }

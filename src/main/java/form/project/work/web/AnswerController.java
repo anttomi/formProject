@@ -36,7 +36,7 @@ public class AnswerController {
 	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/answers")
 	public Answer newAnswer(@RequestBody Answer newAnswer) {
-	    	log.info("onnistui");
+	    	log.info("TESTI" + newAnswer.toString());
 		return arepository.save(newAnswer);
 	}
 	
