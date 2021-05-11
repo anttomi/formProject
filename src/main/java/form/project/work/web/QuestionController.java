@@ -53,8 +53,9 @@ public class QuestionController {
 	    return (List<Question>) qRepository.findAll();
 	}
 	
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping(value = "/questions")
-	Question newQuestion (@RequestBody Question newQuestion) {
+	public Question newQuestion(@RequestBody Question newQuestion) {
 	    return qRepository.save(newQuestion);
 	}
 	

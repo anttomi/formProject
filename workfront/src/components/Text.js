@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField'
 export default function Text(props) {
     return(
 
-        <TextField id={props.id} label={props.title}>
+        <TextField id={props.id} label={props.title} key={props.key}>
 
         </TextField>
     )
