@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import * as Survey from "survey-react";
-import "survey-react/survey.css";
+import Text from "./components/Text"
+import {Button} from "@material-ui/core"
 
 
 function Form() {
@@ -11,7 +11,15 @@ function Form() {
   const [complete, setComplete] = useState(false)
   const [json, setJson] = useState({questions: []})
   const [answer, setAnswer] = React.useState({question: {questionid: 3}, input: ''})
+  const [answers, setAnswers] = React.useState([])
+  const [questions, setQuestions] = useState([])
      
+  useEffect (() => {
+    fetchQuestion();
+
+
+    },[])
+
   const saveAnswer = async () => {
     console.log(answer)
 
@@ -29,13 +37,7 @@ function Form() {
     setAnswer({ ...answer, [event.target.name]: event.target.value });
   }
 
-
-
-  useEffect (() => {
-
-    fetchQuestion();
-
-    },[])
+  
   
   const fetchQuestion = () => {
     
@@ -51,9 +53,11 @@ function Form() {
           jsonQ.questions[i] = {
             id: data[i].id,
             type: data[i].type,
+            name: String(i),
             title: data[i].title,
             choices: data[i].choices
           }
+          
           i++; 
           
         }
@@ -63,32 +67,29 @@ function Form() {
       .catch(err => console.error(err))
   }
 
-  console.log(json)
+  
+  let createForm = () => {
+    let html = <div></div>
+    for (let i = 0; i < json.length; i++) {
+      html += <Text title={json.questions[i].title}/>
 
-
+    }
+    return html
+  }
+ 
   const onComplete = () => {
     setComplete(true);
-    setAnswer();
     saveAnswer();
     
   }
 
-  var surveyRender = !complete ? (
-    <Survey.Survey
-      json={json}
-      onComplete={onComplete}
+  
 
-    />
-
-  ) : null
-  var completed = complete ? (
-    <div>Vastasit kaikkiin pakollisiin kysymyksiin. Kiitos</div>
-  ) : null;
   return (
-    <div>
-      {surveyRender}
-      {completed}
-    </div>
+    <form id="quiz" onSubmit={onComplete}>
+      <Text title="joo" id="1"></Text>
+      <Button></Button>
+    </form>
   );
 }
 

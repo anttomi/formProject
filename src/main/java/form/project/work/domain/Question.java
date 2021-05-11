@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 
@@ -31,7 +32,7 @@ public class Question {
 	@JoinColumn(name="survey")
 	private Survey survey;
 	
-	@JsonIgnore
+	@JsonIgnoreProperties(value={"question"})
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
 	private List<Answer> answers;
 	
@@ -115,7 +116,7 @@ public class Question {
 	}
 
 	public void setAnswers(List<Answer> answers) {
-	this.answers = answers;
+	    this.answers = answers;
 	}
 
 
