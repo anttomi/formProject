@@ -35,6 +35,7 @@ public class WorkApplication {
 			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
 			User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
 			
+			urepository.deleteAll();
 			urepository.save(user1);
 			urepository.save(user2);
 			
@@ -49,15 +50,18 @@ public class WorkApplication {
 			
 			List<Answer> answers = new ArrayList<>();
 			
+			
 			answers.add(answer1);
 			answers.add(answer2);
 			
+			arepository.deleteAll();
 			arepository.save(answer1);
 			arepository.save(answer2);
 			
 			Question q1 = new Question("Mitä kuuluu","text");
 			Question q2 = new Question("toinen ksymys", "checkbox", choices1);
 			
+			repository.deleteAll();
 			repository.save(q1);
 			repository.save(q2);
 			
@@ -70,6 +74,7 @@ public class WorkApplication {
 			Survey survey1 = new Survey("kysely1");
 			Survey survey2 = new Survey("kysely2");
 			
+			srepository.deleteAll();
 			srepository.save(survey1);
 			srepository.save(survey2);
 			log.info("fetch all questions");
