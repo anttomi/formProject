@@ -27,12 +27,14 @@ public class AnswerController {
 	@Autowired
 	private AnswerRepository arepository;
 	
+	
+	//Api get all the answers
 	@GetMapping(value = "/answers")
 	List<Answer> all() {
 		return (List<Answer>) arepository.findAll();	
 	}
 	
-	
+	//Api, save answer with the question info
 	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/answers")
 	public Answer newAnswer(@RequestBody Answer newAnswer) {
@@ -40,13 +42,7 @@ public class AnswerController {
 		return arepository.save(newAnswer);
 	}
 	
-	
-//	@CrossOrigin(origins = "http://localhost:3000")
-//	@PostMapping("/answers")
-//	public void test(@RequestBody String stringtest) {
-//	    log.info("testi");
-//	}
-	
+	//Api, return answer by its id
 	@GetMapping(value = "/answer/{id}")
 	Optional<Answer> single(@PathVariable("id") Long id) {
 	    return arepository.findById(id);

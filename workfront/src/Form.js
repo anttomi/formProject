@@ -117,6 +117,5 @@ function Form() {
 
   );
 }
-// Checkbox key={index}>{question.choices}</Checkbox>
-//
+
 export default Form;
