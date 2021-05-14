@@ -89,25 +89,26 @@ public class QuestionController {
 	}
 	
 	//request for adding a question back
-	@RequestMapping(value = "/add")
+	@RequestMapping(value = "/addquestion")
 	public String addQuestion(Model model){
 	 model.addAttribute("question", new Question());
 	 return "addquestion";
 	}
 	
-	/*
+	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(Question question){
 	 qRepository.save(question);
-	 return "redirect:questionlist";
-	}*/
-	
-	//Saving a survey
-	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String save(Survey survey){
-	 sRepository.save(survey);
-	 return "redirect:surveys";
+	 return "redirect:home";
 	}
+	
+//	
+//	//Saving a survey
+//	@RequestMapping(value = "/save", method = RequestMethod.POST)
+//	public String save(Survey survey){
+//	 sRepository.save(survey);
+//	 return "redirect:surveys";
+//	}
 	
 	
 

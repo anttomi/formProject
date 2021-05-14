@@ -2,10 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org"
 xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
+
 <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
 <title> Add a new question</title>
 </head>
 <body>
+
+
 
 <div class="container">
 <h1>Add a question</h1>
@@ -16,9 +19,6 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
   <label for="question">Question<input type="text" th:field= "*{title}" class="form-control"></label>
   </div>
  
-  <div>
-  <label for="answer">Answer<input type="text" th:field= "*{answer}" class="form-control"></label>
-  </div>
   <div>
   <label for="type">Type</label>
    <select th:field="*{type}" class="form-control">
@@ -32,6 +32,16 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
  <input type="submit" value="Save"  class="btn btn-success"></input>
  </form>
 </div>
+
+
+<br>
+
+<div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-success" onclick="addRow()">Add row</button>
+            </div>
+        </div>
+
 </div>
 
 
