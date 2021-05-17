@@ -13,7 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 
@@ -31,7 +31,7 @@ public class Question {
 	@JoinColumn(name="survey")
 	private Survey survey;
 	
-	@JsonIgnoreProperties(value={"question"})
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
 	private List<Answer> answers;
 	
