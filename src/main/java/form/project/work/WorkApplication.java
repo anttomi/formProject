@@ -60,10 +60,12 @@ public class WorkApplication {
 			
 			Question q1 = new Question("Mitä kuuluu","text");
 			Question q2 = new Question("toinen ksymys", "checkbox", choices1);
+			Question q3 = new Question("monivalinta", "checkbox", choices2);
 			
 			repository.deleteAll();
 			repository.save(q1);
 			repository.save(q2);
+			repository.save(q3);
 			
 			
 			List<Question> qt = new ArrayList<>();
