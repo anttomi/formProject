@@ -19,7 +19,7 @@ public class Answer {
 	
 	
 	@ManyToOne
-	@JsonIgnoreProperties(value = {"title", "type", "choices", "answers"})
+	@JsonIgnoreProperties(value = {"type", "choices", "answers"})
 	@JoinColumn(name="questionid")
 	private Question question;
 	

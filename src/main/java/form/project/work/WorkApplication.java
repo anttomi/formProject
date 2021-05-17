@@ -46,18 +46,8 @@ public class WorkApplication {
 			String[] choices2 = {"Olen samaa mieltä", "En osaa sanoa", "Olen eri mieltä"};
 			String[] choices3 = {"Tiedän", "En tiedä"};
 			
-			Answer answer1 = new Answer("vastaus");
-			Answer answer2 = new Answer("vastaus2");
-			
-			List<Answer> answers = new ArrayList<>();
-			
-			
-			answers.add(answer1);
-			answers.add(answer2);
-			
-			arepository.deleteAll();
-			arepository.save(answer1);
-			arepository.save(answer2);
+		
+		
 			
 			Question q1 = new Question("Mitä kuuluu","text");
 			Question q2 = new Question("toinen ksymys", "checkbox", choices1);

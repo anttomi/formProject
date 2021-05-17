@@ -95,20 +95,12 @@ public class QuestionController {
 	 return "addquestion";
 	}
 	
-	
+	//Save a question back
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(Question question){
 	 qRepository.save(question);
 	 return "redirect:home";
 	}
-	
-//	
-//	//Saving a survey
-//	@RequestMapping(value = "/save", method = RequestMethod.POST)
-//	public String save(Survey survey){
-//	 sRepository.save(survey);
-//	 return "redirect:surveys";
-//	}
 	
 	
 
