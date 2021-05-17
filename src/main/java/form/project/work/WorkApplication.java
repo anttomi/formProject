@@ -44,6 +44,7 @@ public class WorkApplication {
 			
 			String[] choices1 = {"kyllä", "en tiedä", "ei"};
 			String[] choices2 = {"Olen samaa mieltä", "En osaa sanoa", "Olen eri mieltä"};
+			String[] choices3 = {"Tiedän", "En tiedä"};
 			
 			Answer answer1 = new Answer("vastaus");
 			Answer answer2 = new Answer("vastaus2");
@@ -61,11 +62,15 @@ public class WorkApplication {
 			Question q1 = new Question("Mitä kuuluu","text");
 			Question q2 = new Question("toinen ksymys", "checkbox", choices1);
 			Question q3 = new Question("monivalinta", "checkbox", choices2);
+			Question q4 = new Question("Miten voit?","text");
+			Question q5 = new Question("Tiedätkö?","checkbox", choices3);
 			
 			repository.deleteAll();
 			repository.save(q1);
 			repository.save(q2);
 			repository.save(q3);
+			repository.save(q4);
+			repository.save(q5);
 			
 			
 			List<Question> qt = new ArrayList<>();
