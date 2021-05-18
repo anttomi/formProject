@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<title>formtest</title>
+</head>
+<body>
+
+	<h1>Kysymykset</h1>
+	
+	<table>
+	<tr>
+	<th>Title
+	</tr>
+		<tr th:each="question : ${questions}">
+			<td th:text="${question.title}" /></td>
+			 <td><a class="btn btn-danger"
+					th:href="@{/delete/{id}(id=${question.questionid})}">Delete</a></td>
+					<td><a class="btn btn-warning"
+					th:href="@{/edit/{id}(id=${question.questionid})}">Edit</a></td>
+		</tr>
+	</table>
+	
+	
+</body>
+</html>
